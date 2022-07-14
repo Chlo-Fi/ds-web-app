@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { User, SecondUser } from './User';
-import Form from './Form'
+import Form from './Form';
+import Data from './Data';
 
 function App() {
     const name = "Emily";
@@ -26,6 +27,7 @@ function App() {
                 >
                     Learn React
                 </a>
+                <Data />
                 <Form />
                 {/* <User name={name} age={age} function={clickMe}/> 
                 <SecondUser />*/}
