@@ -12,16 +12,26 @@ function Form() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        console.log("Form Submitted.");
-        console.log(form);
-    }
+        const form_data = new FormData();
+        form_data.append("1", form.size);
+        form_data.append("2", form.zipcode);
+        form_data.append("3", form.lot);
+        form_data.append("4", form.bath);
+        form_data.append("5", form.bed);
+
+        fetch('https://realty-price-prediction.herokuapp.com/', {
+            method: 'POST',
+            body: form_data
+        })
+            .then(response => console.log(response)
+    };
 
     const onChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
 
-        setForm({...form, [name]: value });
-    }
+        setForm({ ...form, [name]: value });
+    };
 
     return (
         <form onSubmit={handleSubmit}>
