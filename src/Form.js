@@ -1,7 +1,13 @@
 import { useState } from 'react';
 
 function Form() {
-    const [form, setForm] = useState({ name: "", email: ""});
+    const [form, setForm] = useState({
+        size: "",
+        zipcode: "",
+        lot: "",
+        bath: "",
+        bed: ""
+    });
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -11,22 +17,21 @@ function Form() {
     }
 
     const onChange = (event) => {
-        console.log("Changed input field");
         const name = event.target.name;
         const value = event.target.value;
-
-        console.log('event.target.name:');
-        console.log({ name });
-        console.log('event.target.value:');
-        console.log({ value })
 
         setForm({...form, [name]: value });
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text" name="name" onChange={onChange} placeholder="Name (e.g. John)" />
-            <input type="email" name="email" onChange={onChange} placeholder="Email (e.g. john.doe@example.com)" />
+            <h4> Listing Price Predictor </h4>
+            <p> Enter the below information to retrieve a prediction on the listing price of the property.</p>
+            <input type="number" name="size" onChange={onChange} placeholder="Size of Home (in sq ft)" />
+            <input type="number" name="zipcode" onChange={onChange} placeholder="Zip Code" />
+            <input type="number" name="lot" onChange={onChange} placeholder="Size of Lot (in acres)" />
+            <input type="number" name="bath" onChange={onChange} placeholder="Number of Bathrooms" />
+            <input type="number" name="bed" onChange={onChange} placeholder="Number of Bedrooms" />
             <button type="submit">Submit Form</button>
         </form>
     );
