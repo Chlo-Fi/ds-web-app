@@ -49,7 +49,7 @@ function Form() {
             <input type="number" name="bed" onChange={onChange} placeholder="Number of Bedrooms" />
             <button type="submit">Submit Form</button>
 
-            {result && <div dangerouslySetInnerHTML={{ __html: result }} />}
+            {result && <div dangerouslySetInnerHTML={{ __html: listing-price-prediction }} />}
         </form>
     );
 }
