@@ -9,6 +9,8 @@ function Form() {
         bed: ""
     });
 
+    const [result, setResult] = useState("");
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -23,7 +25,7 @@ function Form() {
             method: 'POST',
             body: form_data
         })
-            .then(response => console.log(response)
+            .then(response => console.log(response))
     };
 
     const onChange = (event) => {
