@@ -25,7 +25,10 @@ function Form() {
             method: 'POST',
             body: form_data
         })
-            .then(response => console.log(response))
+            .then(response => response.text())
+            .then(html => {
+                setResult(html);
+            })
     };
 
     const onChange = (event) => {
@@ -45,6 +48,8 @@ function Form() {
             <input type="number" name="bath" onChange={onChange} placeholder="Number of Bathrooms" />
             <input type="number" name="bed" onChange={onChange} placeholder="Number of Bedrooms" />
             <button type="submit">Submit Form</button>
+
+            {result && <div dangerouslySetInnerHTML={{ __html: result }} />}
         </form>
     );
 }
